@@ -23,6 +23,6 @@ If you use this code, please cite:
 
 ## Acknowledgments
 
-In this work these codes are utilized:
+In this work this code is utilized:
 
 - Justin Johnson's [torch-rnn](https://github.com/jcjohnson/torch-rnn)
