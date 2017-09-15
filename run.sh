@@ -2,7 +2,7 @@
 python ./src/preprocess.no_preset_v.py --train_txt ./train.en --val_txt ./val.en --test_txt ./test.en --output_h5 ./data.en.h5 --output_json ./data.en.json
 cat data.txt | awk '{for (i=NF; i>0; i--) {printf "%s ", $i;} printf "\n" }' > data.rev.txt
 python ./src/preprocess.no_preset_v.py --train_txt ./train.en.rev --val_txt ./val.en.rev --test_txt ./test.en.rev --output_h5 ./data.en.rev.h5 --output_json ./data.en.rev.json
-
+#
 #train rnn-LM
 th ./src/train.lua -input_h5 ./data.h5 -input_json ./data.json -checkpoint_name ./models_rnn/cv  -vocabfreq ./vocab_freq.trg.txt 
 th ./src/train.lua -input_h5 ./data.rev.h5 -input_json ./data.rev.json -checkpoint_name ./models_rnn_rev/cv  -vocabfreq ./vocab_freq.trg.txt
