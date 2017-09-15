@@ -18,7 +18,10 @@ If you use this code, please cite:
   url       = {http://aclweb.org/anthology/P17-2090}
 }
 ```
-## Process
+## Train a New Model
+### Data Pre-processing
+### Training
+### Substitution Generation
 
 ## TODO
 
