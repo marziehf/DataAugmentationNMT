@@ -76,7 +76,10 @@ Running these two codes will give you augmented corpora with a list of substitut
 ```
 perl ./scripts/generate_intersect.pl train.en.subs train.en.rev.subs subs.intersect
 ```
-`subs.intersect` contains the substitutions that can be used to augment the bitext.
+`subs.intersect` contains the substitutions that can be used to augment the bitext. It looks like this:
+
+```
+```
 
 ### Step 4: Generate Augmented corpora
 
@@ -107,6 +110,13 @@ perl ./scripts/data_augmentation.pl subs.intersect train.de alignment.txt lex.tx
 ```
 
 This will generate two files: `augmentedOutput.augmented` in [src/trg] and `augmentedOutput.fillout` in [trg/src] language. The first file is the side of the bitext augmented targeting the rare words. The second file is respective translations of the augmented sentences.
+
+An example from the augmented file:
+```... the basis for completing the japanese:319~internal market and for introducing ...```
+and respective sentence from the fillout file:
+* ... müßten dann die vollendung des japanischen~binnenmarktes und eine nachhaltige ...
+
+The word 
 
 
 If you want to have more than one change in each sentence you can also run:
