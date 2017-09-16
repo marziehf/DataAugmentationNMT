@@ -136,7 +136,7 @@ perl ./scripts/data_augmentation_multiplechanges.pl subs.intersect train.de alig
 
 Here is a sentence from the augmented file in [src/trg]:
 ```
-at the same time , the rights of consumers began:604~need to be maintained.
+at the same time , the rights of consumers began:604~need to be maintained .
 ```
 and respective sentence from the fillout file in [trg/src]:
 ```
@@ -155,8 +155,6 @@ perl ./scripts/filter_out_augmentations.pl augmentedOutput.en augmentedOutput.de
 ```
 You can impose further frequncy limit on rare words you want to augment here. 
 
-## TODO
-Update README
 
 ## Acknowledgments
 
