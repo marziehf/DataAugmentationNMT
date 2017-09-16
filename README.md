@@ -76,10 +76,25 @@ Running these two codes will give you augmented corpora with a list of substitut
 ```
 perl ./scripts/generate_intersect.pl train.en.subs train.en.rev.subs subs.intersect
 ```
-`subs.intersect` contains the substitutions that can be used to augment the bitext. It looks like this:
+`subs.intersect` contains the substitutions that can be used to augment the bitext. Here's an example of the output:
 
 ```
+information where we are successful will be published in this unk .
+information{}
+where{}
+we{doctors:136 humans:135}
+are{became:764 remained:245}
+successful{}
+will{}
+be{}
+published{interested:728 introduced:604 kept:456 performed:289 placed:615 played:535 released:477 written:790}
+in{behind:932 beyond:836}
+this{henry:58}
+unk{}
+.{}
 ```
+The first line is the original sentence, and each line after that is a word in the sentence and suggested substitutions with respective frequencies.
+
 
 ### Step 4: Generate Augmented corpora
 
