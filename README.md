@@ -1,6 +1,6 @@
 # DataAugmentationNMT
 
-This repository includes the codes and scripts for training topic-sensitive word embeddings proposed in [our paper](https://www.aclweb.org/anthology/P/P17/P17-2090.pdf).
+This repository includes the codes and scripts for data augmentation targeting rare words for neural machine translation proposed in [our paper](https://www.aclweb.org/anthology/P/P17/P17-2090.pdf).
 
 ## Citation
 
@@ -111,19 +111,25 @@ perl ./scripts/data_augmentation.pl subs.intersect train.de alignment.txt lex.tx
 
 This will generate two files: `augmentedOutput.augmented` in [src/trg] and `augmentedOutput.fillout` in [trg/src] language. The first file is the side of the bitext augmented targeting the rare words. The second file is respective translations of the augmented sentences.
 
-An example from the augmented file:
-```... the basis for completing the japanese:319~internal market and for introducing ...```
-and respective sentence from the fillout file:
-* ... müßten dann die vollendung des japanischen~binnenmarktes und eine nachhaltige ...
-
-The word 
-
-
 If you want to have more than one change in each sentence you can also run:
 
 ```
 perl ./scripts/data_augmentation_multiplechanges.pl subs.intersect train.de alignment.txt lex.txt augmentedOutput
 ```
+
+#### An example of the output 
+
+Here is a sentence from the augmented file in [src/trg]:
+```
+at the same time , the rights of consumers began:604~need to be maintained.
+```
+and respective sentence from the fillout file in [trg/src]:
+```
+gleichzeitig begann~müssen die rechte der verbraucher geschützt werden .
+```
+
+In the augmented file the word *began* with frequncy *604* substitutes the word *need*. In the fillout file the translation of the word, *begann*, substitutes the original word *müssen*.
+
 
 ### Step 5: Generate Clean Bitext for Translation 
 
