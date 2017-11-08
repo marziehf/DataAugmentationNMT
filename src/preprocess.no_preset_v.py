@@ -35,22 +35,13 @@ if __name__ == '__main__':
   for w in sorted(freq, key=freq.get, reverse=True): 
      if counterr < int(args.vocabsize):
         top_list[w] = freq[w]
-#        print w, freq[w]
-#	print counterr
-     counterr += 1
-#     print counterr
-#  print top_list
+     	counterr += 1
   token_to_idx = {}
-  total_size = 0
   with codecs.open(args.train_txt, 'r', args.encoding) as f:
-       for line in f:
+      for line in f:
          for word in line.split(): 
-            total_size += 1
-   #   for char in line:
             if word not in token_to_idx:
-	#       print args.vocabsize, freq[word], word
 	       if word in top_list:
-		   #print word, freq[word]
 	           token_to_idx[word] = len(token_to_idx) + 1
 
   token_to_idx['unk'] = len(token_to_idx) + 1
@@ -66,19 +57,16 @@ if __name__ == '__main__':
   with codecs.open(args.train_txt, 'r', args.encoding) as f:
     for line in f:
       for char in line.split():
-#        if char in token_to_idx:
          train_size += 1
   val_size = 0
   with codecs.open(args.val_txt, 'r', args.encoding) as f:
     for line in f:
       for char in line.split():
-       # if char in token_to_idx:
          val_size += 1
   test_size = 0
   with codecs.open(args.test_txt, 'r', args.encoding) as f:
     for line in f:
       for char in line.split():
-        #if char in token_to_idx:
         test_size += 1
 
   train = np.zeros(train_size, dtype=dtype)
@@ -94,28 +82,25 @@ if __name__ == '__main__':
 	if char in token_to_idx:
            splits[0][cur_idx] = token_to_idx[char]
            cur_idx += 1
-	   train_size += 1
   cur_idx = 0
   with codecs.open(args.val_txt, 'r', args.encoding) as f:
     for line in f:
       for char in line.split():
         if char in token_to_idx:
            splits[1][cur_idx] = token_to_idx[char]
-           cur_idx += 1
 	else:
 #	   print token_to_idx['unk']	   
 	   splits[1][cur_idx] = token_to_idx['unk']
-	   cur_idx += 1
+	cur_idx += 1
   cur_idx = 0
   with codecs.open(args.test_txt, 'r', args.encoding) as f:
     for line in f:
       for char in line.split():
         if char in token_to_idx:
            splits[2][cur_idx] = token_to_idx[char]
-           cur_idx += 1
 	else:
 	   splits[2][cur_idx] = token_to_idx['unk']
-           cur_idx += 1
+        cur_idx += 1
       
   if not args.quiet:
     print 'Total vocabulary size: %d' % len(token_to_idx)
